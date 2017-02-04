@@ -33,3 +33,28 @@ body {
   margin-top: 20px;
   padding: 20px;
 }
+
+.pagination {
+  padding: 20px;
+  margin: auto;
+  width: 300px;
+}
+
+.previous_page, .next_page {
+  background-color: #E02F1B;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+
+.previous_page, .next_page, .current, .next {
+  padding: 10px;
+}
+
+a[rel=next], a[rel=prev]  {
+  padding: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #000000;
+}
