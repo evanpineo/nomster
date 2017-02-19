@@ -1,4 +1,12 @@
 <div class="shadow-box col-10 offset-1">
+  
+  <div class="row img-responsive">
+    <% @place.photos.each do |photo| %>
+      <%= image_tag photo.picture %>
+      <%= photo.caption %>
+    <% end %>
+  </div>
+  
   <h1><%= @place.name %></h1>
   <i><%= @place.address %></i>
   <br><br>
@@ -32,8 +40,15 @@
   
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
+    
+      <!-- Photo Button trigger modal -->
+      <div class="col-10 offset-1">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myPhotoModal">
+          Add Photo
+        </button>
+      </div><br>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
-      <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to remove this?'}, class: 'btn btn-danger' %>
+      <%= link_to 'Remove', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to remove this?'}, class: 'btn btn-danger' %>
     <% end %>
   </div>
   
@@ -42,10 +57,35 @@
 <div class="clear"></div>
 <br>
 
+<!-- Photo Modal -->
+<div class="modal fade" id="myPhotoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myPhotoModalLabel">Submit Photo</h4>
+      </div>
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |p| %>
+        <div class="modal-body">
+          <%= p.input :picture %>
+          <%= p.input :caption %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= p.submit "Add a Photo", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>
+<br>
+
 <% if current_user.present? %>
   <div class="col-10 offset-1">
 
-    <!-- Button trigger modal -->
+<!-- Comments Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
       Add Comment
     </button>
@@ -54,7 +94,7 @@
 
 <div class="clear"></div>
 
-<!-- Modal -->
+<!-- Comments Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
