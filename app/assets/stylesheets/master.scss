@@ -12,6 +12,41 @@ body {
   font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
 }
 
+.row {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float: right;
+}
+
+// button:focus {
+//   outline: transparent;
+// }
+
+// .navbar-toggler {
+//   url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8);
+// }
+
+.navbar-toggler:active,
+.navbar-toggler:focus {
+  outline-color: #E02F1B;
+}
+
+.navbar-inverse .navbar-toggler {
+  border-color: transparent;
+}
+
+.navbar-brand {
+  margin-right: 2rem;
+  padding-right: 65px;
+}
+
 .navbar {
   background: image_url('footer_lodyas.png');
   -webkit-box-shadow: 0 10px 6px -6px #777;
