@@ -90,6 +90,11 @@ button:focus {
   padding: 10px;
 }
 
+span.previous_page.disabled,
+span.next_page.disabled {
+  background-color: lightgrey;
+}
+
 a[rel=next], a[rel=prev], .pagination a  {
   padding: 10px;
 }
