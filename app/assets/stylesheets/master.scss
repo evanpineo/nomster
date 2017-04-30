@@ -171,3 +171,11 @@ blockquote p {
 .carousel {
   box-shadow: 0px 3px 8px #2A2A2A;
 }
+
+.carousel-control-next {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.0001) 0%, rgba(0,0,0,0.5) 100%);
+}
+
+.carousel-control-prev {
+  background-image: linear-gradient(to left, rgba(0,0,0,0.0001) 0%, rgba(0,0,0,0.5) 100%);
+}
